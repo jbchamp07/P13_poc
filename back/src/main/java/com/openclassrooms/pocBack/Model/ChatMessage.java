@@ -8,6 +8,7 @@ public class ChatMessage {
     private String content;
     private MessageType type;
 
+    public ChatMessage() {} // constructeur par défaut
     public enum MessageType {
         CHAT, JOIN, LEAVE
     }

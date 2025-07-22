@@ -38,7 +38,6 @@ export class ChatService {
         content: msg,
         type: 'CHAT'
       };
-
       this.stompClient.publish({
         destination: '/app/chat.sendMessage',
         body: JSON.stringify(chatMessage)
