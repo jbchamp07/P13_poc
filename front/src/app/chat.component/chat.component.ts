@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ChatService } from '../chat.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-chat.component',
@@ -15,13 +16,23 @@ export class ChatComponent {
   message: string = '';
   messages: any[] = [];
 
-  constructor(private chatService: ChatService) {}
+  constructor(private chatService: ChatService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    // Récupération du paramètre 'role' dans l'URL
+    this.route.queryParamMap.subscribe(params => {
+      if (params.get('role') === 'admin') {
+        this.username = 'Admin';
+      }
+    });
+
     this.chatService.connect();
 
     // Synchronisation des messages reçus avec ceux du service
     this.chatService.messages = this.messages;
+
+
+    
   }
 
   sendMessage(): void {

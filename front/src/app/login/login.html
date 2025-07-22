@@ -1,0 +1,21 @@
+<h2>Connexion</h2>
+
+<label>Rôle :</label>
+<select [(ngModel)]="role">
+  <option value="client">Client</option>
+  <option value="admin">Admin</option>
+</select>
+
+<div *ngIf="role === 'admin'">
+  <label>Identifiant :</label>
+  <input type="text" [(ngModel)]="username">
+
+  <label>Mot de passe :</label>
+  <input type="password" [(ngModel)]="password">
+
+  <button (click)="loginAsAdmin()">Se connecter en tant qu’admin</button>
+</div>
+
+<div *ngIf="role === 'client'">
+  <button (click)="loginAsClient()">Entrer en tant que client</button>
+</div>
