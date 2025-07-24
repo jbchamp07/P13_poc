@@ -9,10 +9,10 @@ import { Router, RouterModule } from '@angular/router';
   selector: 'app-login',
   standalone: true,
   imports: [FormsModule,HttpClientModule,CommonModule,RouterModule],
-  templateUrl: './login.html',
-  styleUrl: './login.css'
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css'
 })
-export class Login {
+export class LoginComponent {
 
   role: 'client' | 'admin' = 'client'; // valeur par défaut
   username: string = '';

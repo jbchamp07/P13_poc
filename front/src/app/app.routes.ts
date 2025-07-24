@@ -1,11 +1,10 @@
 import { Routes } from '@angular/router';
 import { App } from './app';
-import { ChatComponent } from './chat.component/chat.component';
-import { Login } from './login/login';
+import { ChatComponent } from './chat/chat.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
    
-    //{ path: 'chat', loadComponent: async () => import('./chat.component/chat.component').then(m => m.ChatComponent) },
-    { path: 'chat', loadComponent: async () => (await import('./chat.component/chat.component')).ChatComponent },
-    { path: '', component:Login }
+    { path: 'chat', loadComponent: async () => (await import('./chat/chat.component')).ChatComponent },
+    { path: '', component:LoginComponent }
 ];

@@ -3,6 +3,8 @@ package com.openclassrooms.pocBack.Controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.openclassrooms.pocBack.Model.ChatMessage;
 import com.openclassrooms.pocBack.Model.Login;
+import com.openclassrooms.pocBack.Service.ChatService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -15,6 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @CrossOrigin(origins = "http://localhost:4200")
 @Controller
 public class ChatController {
+    @Autowired
+    private ChatService chatService;
+
     @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
     public String sendMessage(@Payload ChatMessage chatMessage) throws Exception {
@@ -24,10 +29,6 @@ public class ChatController {
     @PostMapping("/login")
     @ResponseBody
     public boolean login(@RequestBody Login loginDTO) {
-        if((loginDTO.getLogin().equals("admin")) && (loginDTO.getPassword().equals("admin"))){
-            return true;
-        }else{
-            return false;
-        }
+        return chatService.AdminLogin(loginDTO);
     }
 }
