@@ -20,8 +20,7 @@ Ce projet combine une interface **Angular** avec un backend **Java Spring Boot**
 
 ### 1. Clone du projet
 
-git clone https://github.com/ton-utilisateur/ton-projet.git
-cd ton-projet
+git clone https://github.com/jbchamp07/P13_poc
 
 ### 2 Installation
 npm install @stomp/stompjs sockjs-client && npm install --save-dev @types/sockjs-client
