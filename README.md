@@ -20,7 +20,6 @@ Ce projet combine une interface **Angular** avec un backend **Java Spring Boot**
 
 ### 1. Clone du projet
 
-```bash
 git clone https://github.com/ton-utilisateur/ton-projet.git
 cd ton-projet
 
