@@ -22,10 +22,11 @@ Ce projet combine une interface **Angular** avec un backend **Java Spring Boot**
 
 git clone https://github.com/jbchamp07/P13_poc
 
-### 2 Installation
+### 2 Installation (front)
+cd front  
 npm install @stomp/stompjs sockjs-client && npm install --save-dev @types/sockjs-client
 ### 3 Lancement (front)
 ng serve --open
 ### 4 Lancement (back)
-cd back
+cd back  
 ./mvnw spring-boot:run
