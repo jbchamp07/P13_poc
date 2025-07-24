@@ -4,7 +4,7 @@ Ce projet combine une interface **Angular** avec un backend **Java Spring Boot**
 
 ---
 
-## 🧰 Prérequis
+## Prérequis
 
 ### Backend (Spring Boot)
 - Java 17+
@@ -16,7 +16,7 @@ Ce projet combine une interface **Angular** avec un backend **Java Spring Boot**
 
 ---
 
-## 🚀 Lancement du projet
+## Lancement du projet
 
 ### 1. Clone du projet
 
@@ -24,10 +24,10 @@ Ce projet combine une interface **Angular** avec un backend **Java Spring Boot**
 git clone https://github.com/ton-utilisateur/ton-projet.git
 cd ton-projet
 
-## 🚀 Installation
+### 2 Installation
 npm install @stomp/stompjs sockjs-client && npm install --save-dev @types/sockjs-client
-## 🚀 Lancement (front)
+### 3 Lancement (front)
 ng serve --open
-## 🚀 Lancement (back)
+### 4 Lancement (back)
 cd back
 ./mvnw spring-boot:run
