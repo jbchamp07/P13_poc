@@ -3,6 +3,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { LoginService } from '../login.service';
 
 
 @Component({
@@ -18,29 +19,23 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private loginService: LoginService) {
     
   }
 
 loginAsAdmin() {
-    const body = {
-  login: this.username,
-  password: this.password
-};
-
-this.http.post<boolean>('http://localhost:8080/login', body).subscribe({
-  next: (res) => {
-    if (res === true) {
-      // Redirection avec paramètre ?role=admin
-      this.router.navigate(['/chat'], { queryParams: { role: 'admin' } });
-    } else {
-      alert('Identifiant ou mot de passe incorrect');
-    }
-  },
-  error: () => {
-    alert('Erreur serveur');
-  }
-});
+    this.loginService.loginAdmin(this.username, this.password).subscribe({
+      next: (res) => {
+        if (res) {
+          this.router.navigate(['/chat'], { queryParams: { role: 'admin' } });
+        } else {
+          alert('Identifiant ou mot de passe incorrect');
+        }
+      },
+      error: () => {
+        alert('Erreur serveur');
+      }
+    });
   }
 
   loginAsClient() {
